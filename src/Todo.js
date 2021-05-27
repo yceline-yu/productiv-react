@@ -7,13 +7,18 @@ import React from "react";
  *
  * { EditableTodo, TodoApp } -> Todo
  **/
+// { id, title, description, priority }
+function Todo({ todo }) {
+  console.log("todo", todo)
+  console.log("todo.title", todo.title)
+  // const { id, title, description, priority } = todo
+  // console.log("todo.title", todo.todo)
 
-function Todo() {
   return (
-      <div className="Todo">
-        <div><b>Title</b> <small>(priority: 1)</small></div>
-        <div><small>Description.</small></div>
-      </div>
+    <div className="Todo">
+      <div><b>{todo.title}</b> <small>(priority: {todo.priority})</small></div>
+      <div><small>{todo.description}.</small></div>
+    </div>
   );
 }
 

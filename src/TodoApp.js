@@ -18,10 +18,11 @@ import TodoForm from "./TodoForm"
 
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos) //array of objects
+  console.log("TodoApp todos", todos);
 
   /** add a new todo to list */
   function create(newTodo) {
-    let newDo = {...newTodo, id: uuid()}
+    let newDo = { ...newTodo, id: uuid() }
     setTodos(todos => [...todos, newDo])
   }
 
@@ -31,10 +32,10 @@ function TodoApp({ initialTodos }) {
       // const todosCopy = [...todos];
       todos.map(todo => (
         todo.id === updatedTodo.id
-      ? updatedTodo
-      : todo
+          ? updatedTodo
+          : todo
       )));
-}
+  }
 
 
   /** delete a todo by id */
@@ -43,30 +44,34 @@ function TodoApp({ initialTodos }) {
   }
 
   return (
-      <main className="TodoApp">
-        <div className="row">
+    <main className="TodoApp">
+      <div className="row">
 
-          <div className="col-md-6">
-            <EditableTodoList update={update} remove={remove} todos={todos}/> OR
-            <span className="text-muted">You have no todos.</span>
-          </div>
+        <div className="col-md-6">
+          {todos.length === 0
+            ? <span className="text-muted">You have no todos.</span>
+            : <EditableTodoList update={update} remove={remove} todos={todos} />
+          }
 
-          <div className="col-md-6">
-            {todos.length === 0 
-            ? null 
-            :<section className="mb-4">
-              <h3>Top Todo</h3>
-              <TopTodo todos={todos}/>
-            </section>}
-
-            <section>
-              <h3 className="mb-3">Add Nü</h3>
-              <TodoForm handleSave={create}/>
-            </section>
-          </div>
 
         </div>
-      </main>
+
+        <div className="col-md-6">
+          {todos.length === 0
+            ? null
+            : <section className="mb-4">
+              <h3>Top Todo</h3>
+              <TopTodo todos={todos} />
+            </section>}
+
+          <section>
+            <h3 className="mb-3">Add Nü</h3>
+            <TodoForm handleSave={create} />
+          </section>
+        </div>
+
+      </div>
+    </main>
   );
 }
 
