@@ -7,12 +7,9 @@ import React from "react";
  *
  * { EditableTodo, TodoApp } -> Todo
  **/
-// { id, title, description, priority }
+
 function Todo({ todo }) {
-  console.log("todo", todo)
-  console.log("todo.title", todo.title)
-  // const { id, title, description, priority } = todo
-  // console.log("todo.title", todo.todo)
+  console.log("Todo", todo)
 
   return (
     <div className="Todo">
