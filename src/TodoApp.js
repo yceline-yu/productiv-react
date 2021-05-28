@@ -23,6 +23,7 @@ function TodoApp({ initialTodos }) {
   console.log("TodoApp todos", todos);
 
   /** add a new todo to list */
+  //TODO: rename newDo to something else
   function create(newTodo) {
     let newDo = { ...newTodo, id: uuid() }
     setTodos(todos => [...todos, newDo]);

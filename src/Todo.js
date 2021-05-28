@@ -9,7 +9,7 @@ import React from "react";
  **/
 
 function Todo({ todo }) {
-  console.log("Todo", todo)
+  console.log("Todo", todo);
 
   return (
     <div className="Todo">
